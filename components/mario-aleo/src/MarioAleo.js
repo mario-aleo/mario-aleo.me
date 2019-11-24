@@ -26,12 +26,6 @@ export class MarioAleo extends LitElement {
           color: #1a2b42;
           margin: 0 auto;
         }
-
-        #toggle-about-me {
-          position: fixed;
-          bottom: 32px;
-          right: 32px;
-        }
       `,
       /* Background */
       css`
@@ -63,7 +57,7 @@ export class MarioAleo extends LitElement {
           align-items: center;
           justify-content: center;
           width: 100vw;
-          height: 60vh;
+          height: 70vh;
           background-image:  url('../../../assets/background-sunset-1080.png');
           background-size: auto;
           background-repeat: no-repeat;
@@ -85,39 +79,39 @@ export class MarioAleo extends LitElement {
 
         .grid {
             position: absolute;
-            top: 50vh;
+            bottom: 32px;
             width: 220vw;
-            height: calc(40vh + 6px);
+            height: 30vh;
             margin-top: 12px;
             background-size: 96px 100%;
             background-repeat: repeat-x;
             image-rendering: pixelated;
-            animation: scroll 0.5s linear infinite;
+            animation: scroll 16.6s linear infinite;
         }
         #vertical-grid {
           background-image:
             linear-gradient(
               0deg,
 
-              transparent 13%,
-              rgba(101, 24, 200, 1) 13%,
-              rgba(101, 24, 200, 1) 13.7%,
-              transparent 13.7%,
+              transparent 5%,
+              rgba(101, 24, 200, 1) 5%,
+              rgba(101, 24, 200, 1) 6%,
+              transparent 5%,
               
-              transparent 30.1%,
-              rgba(141, 23, 194, 1) 30.1%,
-              rgba(141, 23, 194, 1) 30.9%,
-              transparent 30.9%,
+              transparent 30%,
+              rgba(141, 23, 194, 1) 30%,
+              rgba(141, 23, 194, 1) 31%,
+              transparent 31%,
 
               transparent 55%,
               rgba(157, 34, 172, 1) 55%,
-              rgba(157, 34, 172, 1) 56.5%,
-              transparent 56.5%,
+              rgba(157, 34, 172, 1) 56%,
+              transparent 56%,
 
-              transparent 80%,
-              rgba(167, 43, 116, 1) 80%,
-              rgba(167, 43, 116, 1) 82%,
-              transparent 82%,
+              transparent 75%,
+              rgba(167, 43, 116, 1) 75%,
+              rgba(167, 43, 116, 1) 76%,
+              transparent 76%,
               
               transparent
             );
@@ -150,13 +144,20 @@ export class MarioAleo extends LitElement {
         }
 
         @keyframes scroll {
-          from { transform: perspective(156px) rotateX(40deg) translateX(96px); }
-          to { transform: perspective(156px) rotateX(40deg) translateX(0); }
+          from {
+            background-position: 0px 0;
+            transform: perspective(64px) rotateX(25deg);
+          }
+          to {
+            background-position: -3219px 0;
+            transform: perspective(64px) rotateX(25deg);
+          }
         }
       `,
       /* About me */
       css`
         #about-me {
+          position: relative;
           max-width: 80%;
         }
 
@@ -177,6 +178,7 @@ export class MarioAleo extends LitElement {
           grid-area: avatar;
           justify-self: center;
           image-rendering: pixelated;
+          image-rendering: crisp-edges;
         }
 
         #name {

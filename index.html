@@ -3,24 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Put your description here.">
+
   <base href="/">
+
+  <title>Mario Aleo</title>
+  <meta name="Description" content="Portifolio">
+  <meta name="theme-color" content="#673AB7">
+  <link rel="icon" href="/assets/thumb.png" type="image/png">
+  <link rel="shortcut icon" href="/assets/thumb.png" type="image/png">
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
       font-family: 'Press Start 2P', sans-serif;
-      background-color: rgb(59, 47, 111);
+      background-color: #3b2f6f;
     }
   </style>
 
-  <title>mario-aleo</title>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js');
+      });
+    }
+  </script>
+
 </head>
 <body>
   <mario-aleo></mario-aleo>
 
   <script type="module" src="./components/mario-aleo/mario-aleo.js"></script>
+
   <link href="node_modules/nes.css/css/nes.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </body>
