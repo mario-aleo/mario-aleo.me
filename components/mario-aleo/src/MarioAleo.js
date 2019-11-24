@@ -79,42 +79,41 @@ export class MarioAleo extends LitElement {
 
         .grid {
             position: absolute;
-            bottom: 32px;
-            width: 220vw;
-            height: 30vh;
+            top: calc(70vh - 100px);
+            width: 200vw;
+            height: 300px;
             margin-top: 12px;
             background-size: 96px 100%;
             background-repeat: repeat-x;
             image-rendering: pixelated;
-            animation: scroll 16.6s linear infinite;
+            animation: scroll 22.5s linear infinite;
         }
         #vertical-grid {
-          background-image:
-            linear-gradient(
-              0deg,
+          background-image: linear-gradient(
+            0deg,
 
-              transparent 5%,
-              rgba(101, 24, 200, 1) 5%,
-              rgba(101, 24, 200, 1) 6%,
-              transparent 5%,
-              
-              transparent 30%,
-              rgba(141, 23, 194, 1) 30%,
-              rgba(141, 23, 194, 1) 31%,
-              transparent 31%,
+            transparent 23%,
+            rgb(101, 24, 200) 23%,
+            rgb(101, 24, 200) 23.5%,
+            transparent 23.5%,
 
-              transparent 55%,
-              rgba(157, 34, 172, 1) 55%,
-              rgba(157, 34, 172, 1) 56%,
-              transparent 56%,
-
-              transparent 75%,
-              rgba(167, 43, 116, 1) 75%,
-              rgba(167, 43, 116, 1) 76%,
-              transparent 76%,
-              
-              transparent
-            );
+            transparent 38%,
+            rgb(141, 23, 194) 38%,
+            rgb(141, 23, 194) 39%,
+            transparent 39%,
+            
+            transparent 50%,
+            rgb(157, 34, 172) 50%,
+            rgb(157, 34, 172) 51%,
+            transparent 51%,
+            
+            transparent 58%,
+            rgb(167, 43, 116) 58%,
+            rgb(167, 43, 116) 59%,
+            transparent 59%,
+            
+            transparent
+          );
         }
         #horizontal-grid {
           background-image:
