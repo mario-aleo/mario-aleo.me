@@ -1,5 +1,4 @@
 import { LitElement, html, css } from 'lit-element';
-import { nesCss } from '../../../assets/nes.min.css';
 
 export class MarioAleo extends LitElement {
   static get properties() {
@@ -15,27 +14,34 @@ export class MarioAleo extends LitElement {
       /* Host */
       css`
         :host {
-          min-height: 100vh;
-          max-width: 100vw;
-          max-height: 100vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          height: 100vh;
+          max-width: 100vw;
+          max-height: 100vh;
           font-size: 16px;
           color: #1a2b42;
           margin: 0 auto;
+        }
+
+        a,
+        a:hover {
+          text-decoration: none;
         }
       `,
       /* Background */
       css`
         #background {
-          position: fixed;
-          z-index: 0;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: flex-start;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 0;
           width: 100vw;
           height: 100vh;
           background-image:
@@ -50,15 +56,17 @@ export class MarioAleo extends LitElement {
         }
 
         #sunset {
-          position: relative;
-          z-index: 1;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
+          position: relative;
+          top: 0;
+          left: 0;
+          z-index: 1;
           width: 100vw;
           height: 70vh;
-          background-image:  url('../../../assets/background-sunset-1080.png');
+          background-image:  url('./assets/background-sunset-1080.png');
           background-size: auto;
           background-repeat: no-repeat;
           background-position: bottom;
@@ -68,10 +76,11 @@ export class MarioAleo extends LitElement {
         #mountain {
           position: absolute;
           bottom: -28px;
+          left: 0;
           width: 100vw;
           height: 93px;
           border-bottom: 2px solid rgb(167, 43, 116);
-          background:  url('../../../assets/mountain-sprite-1080.png');
+          background:  url('./assets/mountain-sprite-1080.png');
           background-repeat: repeat-x;
           animation: sprite 30s linear infinite;
           image-rendering: pixelated;
@@ -80,6 +89,7 @@ export class MarioAleo extends LitElement {
         .grid {
             position: absolute;
             top: calc(70vh - 100px);
+            left: -50%;
             width: 200vw;
             height: 300px;
             margin-top: 12px;
@@ -236,8 +246,6 @@ export class MarioAleo extends LitElement {
           }
         }
       `,
-      /* Nes.CSS */
-      nesCss,
     ];
   }
 
@@ -249,6 +257,8 @@ export class MarioAleo extends LitElement {
 
   render() {
     return html`
+      <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+
       <section id="background">
         <div id="sunset">
           <div id="mountain"></div>
@@ -260,7 +270,7 @@ export class MarioAleo extends LitElement {
       <section id="about-me" class="nes-container is-dark with-title" .hidden=${!this.showAboutMe}>
         <p class="title">About me</p>
         <div id="about-me-content" >
-          <img id="avatar" class="nes-avatar is-rounded is-large" alt="Avatar" src="../../../assets/avatar_32.jpg">
+          <img id="avatar" class="nes-avatar is-rounded is-large" alt="Avatar" src="./assets/avatar_32.jpg">
           <span id="name">Mario Aleo</span>
           <span id="job">Web Developer</span>
           <span id="carreer">I have 5+ years of experience in building web applications using more of the web platform and fewer frameworks.</span>

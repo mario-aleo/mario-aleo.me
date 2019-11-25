@@ -18,7 +18,10 @@ export default configs.map(config => ({
   plugins: [
     ...config.plugins,
     cpy({
-      files: [ './assets/' ],
+      files: [
+        './assets/',
+        './node_modules/nes.css/css'
+      ],
       dest: 'dist',
       options: {
         parents: true,
