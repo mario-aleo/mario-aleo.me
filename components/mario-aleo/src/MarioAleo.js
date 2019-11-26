@@ -3,8 +3,14 @@ import { LitElement, html, css } from 'lit-element';
 export class MarioAleo extends LitElement {
   static get properties() {
     return {
+      unresolved: {
+        type: Boolean,
+        reflect: true,
+      },
       showAboutMe: {
-        type: Boolean
+        type: Boolean,
+        reflect: true,
+        attribute: false,
       }
     };
   }
@@ -66,7 +72,7 @@ export class MarioAleo extends LitElement {
           z-index: 1;
           width: 100vw;
           height: 70vh;
-          background-image:  url('./assets/background-sunset-1080.png');
+          background-image:  url('./assets/background-sunset.webp');
           background-size: auto;
           background-repeat: no-repeat;
           background-position: bottom;
@@ -80,7 +86,7 @@ export class MarioAleo extends LitElement {
           width: 100vw;
           height: 93px;
           border-bottom: 2px solid rgb(167, 43, 116);
-          background:  url('./assets/mountain-sprite-1080.png');
+          background:  url('./assets/mountain-sprite.webp');
           background-repeat: repeat-x;
           animation: sprite 30s linear infinite;
           image-rendering: pixelated;
@@ -168,6 +174,9 @@ export class MarioAleo extends LitElement {
         #about-me {
           position: relative;
           max-width: 80%;
+          border: solid 4px #fff;
+          color: #fff;
+          background-color: #212529;
         }
 
         #about-me-content {
@@ -186,6 +195,9 @@ export class MarioAleo extends LitElement {
         #avatar {
           grid-area: avatar;
           justify-self: center;
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
           image-rendering: pixelated;
           image-rendering: crisp-edges;
         }
@@ -252,7 +264,12 @@ export class MarioAleo extends LitElement {
   constructor() {
     super();
 
+    this.unresolved = true;
     this.showAboutMe = true;
+  }
+
+  firstUpdated() {
+    this.unresolved = false;
   }
 
   render() {
@@ -270,18 +287,18 @@ export class MarioAleo extends LitElement {
       <section id="about-me" class="nes-container is-dark with-title" .hidden=${!this.showAboutMe}>
         <p class="title">About me</p>
         <div id="about-me-content" >
-          <img id="avatar" class="nes-avatar is-rounded is-large" alt="Avatar" src="./assets/avatar_32.jpg">
+          <img id="avatar" class="nes-avatar is-rounded is-large" alt="Avatar" src="./assets/avatar_32.webp">
           <span id="name">Mario Aleo</span>
           <span id="job">Web Developer</span>
           <span id="carreer">I have 5+ years of experience in building web applications using more of the web platform and fewer frameworks.</span>
           <div id="social">
-            <a href="https://twitter.com/MarioAleo" target="_blank">
+            <a href="https://twitter.com/MarioAleo" target="_blank" rel="noopener" aria-label="My Twitter profile">
               <i class="nes-icon twitter is-medium"></i>
             </a>
-            <a href="https://github.com/mario-aleo" target="_blank">
+            <a href="https://github.com/mario-aleo" target="_blank" rel="noopener" aria-label="My Github profile">
               <i class="nes-icon github is-medium"></i>
             </a>
-            <a href="https://www.linkedin.com/in/mario-henrique-vivan-aleo-7513b3b8/" target="_blank">
+            <a href="https://www.linkedin.com/in/mario-henrique-vivan-aleo-7513b3b8/" rel="noopener" target="_blank" aria-label="My Linkedin profile">
               <i class="nes-icon linkedin is-medium"></i>
             </a>
           </div>
