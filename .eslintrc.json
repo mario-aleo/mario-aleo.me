@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "@open-wc/eslint-config",
+    "eslint-config-prettier"
+  ],
+  "ignorePatterns": ["node_modules/", "components/golfleet-polyfill/"]
+}
