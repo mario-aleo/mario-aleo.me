@@ -22,17 +22,8 @@ export default {
     /** Copy project files, umd dependencies and web worker dependencies */
     copy({
       patterns: [
-        './assets/**/*.{ttf,txt,jpg,png,svg}',
-        './configs/**/*.json',
-        './components/**/*.worker.js',
-        './components/golfleet-icon/src/font-face.woff',
-        /** umd dependencies */
-        './node_modules/air-datepicker/dist/**/*.js',
-        /** */
-        /** worker dependencies */
-        './node_modules/comlink/dist/umd/**/*.js',
-        /** */
-      ],
+        './assets/**/*.{ttf,txt,jpg,png,svg,webp}',
+      ]
     }),
     /** Enable using HTML as rollup entrypoint */
     html({

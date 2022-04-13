@@ -247,7 +247,7 @@ export class MarioAleo extends LitElement {
         }
         #main-content div {
           height: 100%;
-          overflow: scroll;
+          overflow: hidden scroll;
         }
 
         main section {
