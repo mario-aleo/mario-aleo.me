@@ -83,6 +83,51 @@ export class MarioAleo extends LitElement {
           opacity: 0;
           visibility: hidden;
         }
+
+        @media screen and (max-width: 1300px) {
+          :host {
+            grid-template-areas:
+              'about-me       main-content   main-content'
+              '.              main-content   main-content'
+              'layout-control navigation     spotify';
+          }
+        }
+
+        @media screen and (max-width: 1000px) {
+          :host {
+            grid-template-areas:
+              'about-me       main-content main-content'
+              '.              main-content main-content'
+              'layout-control navigation   spotify';
+          }
+        }
+
+        @media screen and (max-width: 1020px) {
+          :host {
+            justify-items: center;
+            grid-template-rows: auto auto auto auto;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+              'navigation     navigation'
+              'about-me       about-me'
+              'main-content   main-content'
+              'layout-control spotify';
+          }
+        }
+
+        @media screen and (max-width: 610px) {
+          :host {
+            justify-items: center;
+            grid-template-rows: auto auto auto auto;
+            grid-template-columns: 1fr;
+            grid-template-areas:
+              'navigation'
+              'about-me'
+              'main-content'
+              'layout-control'
+              'spotify';
+          }
+        }
       `,
       /* Sunset Background */
       css`
@@ -105,7 +150,8 @@ export class MarioAleo extends LitElement {
             'job'
             'carreer'
             'social';
-          max-width: 80%;
+          width: auto;
+          max-width: 80vw;
           margin: 16px;
           border: solid 4px #fff;
           color: #fff;
@@ -156,9 +202,15 @@ export class MarioAleo extends LitElement {
           height: 48px;
         }
 
+        @media screen and (max-width: 1020px) {
+          #about-me {
+            width: 512px;
+          }
+        }
+
         @media screen and (min-width: 426px) {
           #about-me {
-            max-width: 512px;
+            max-width: 80vw;
             grid-template-rows: 32px 32px auto auto;
             grid-template-columns: 64px auto;
             grid-template-areas:
@@ -181,11 +233,21 @@ export class MarioAleo extends LitElement {
             margin: 32px 8px 0 8px;
           }
         }
+
+        @media screen and (max-width: 426px) {
+          #social {
+            width: 100%;
+          }
+        }
       `,
       /* Main Content */
       css`
         #main-content {
           grid-area: main-content;
+        }
+        #main-content div {
+          height: 100%;
+          overflow: scroll;
         }
 
         main section {
@@ -194,15 +256,35 @@ export class MarioAleo extends LitElement {
         }
         main h2 {
           font-size: 18px;
+          line-height: 24px;
         }
         main h3 {
           margin-left: 16px;
           font-size: 12px;
+          line-height: 16px;
           color: #919191;
         }
         main p {
           margin-left: 16px;
           font-size: 14px;
+          line-height: 18px;
+        }
+
+        @media screen and (max-width: 1020px) {
+          #main-content {
+            width: 512px;
+            max-width: 80vw;
+          }
+        }
+
+        @media screen and (max-width: 375px) {
+          main h3 {
+            margin-left: 0;
+          }
+
+          main p {
+            margin-left: 0;
+          }
         }
       `,
       /* Experience */
@@ -214,6 +296,13 @@ export class MarioAleo extends LitElement {
           align-self: flex-end;
           justify-self: flex-start;
           padding: 16px;
+        }
+
+        @media screen and (max-width: 1020px) {
+          #layout-control {
+            align-self: center;
+            justify-self: center;
+          }
         }
       `,
       /* Navigation */
@@ -238,19 +327,33 @@ export class MarioAleo extends LitElement {
         #navigation a[active]::before {
           border-left: 8px solid #fff;
         }
+
+        @media screen and (max-width: 1020px) {
+          #navigation {
+            width: 512px;
+            max-width: 80vw;
+          }
+        }
       `,
       /* Spotify */
       css`
         #spotify {
-          position: fixed;
-          top: 16px;
+          grid-area: spotify;
+          align-self: flex-end;
+          justify-self: flex-end;
+          margin: 0 16px 16px 0;
         }
 
-        @media screen and (min-width: 426px) {
+        @media screen and (max-width: 1020px) {
           #spotify {
-            top: unset;
-            right: 16px;
-            bottom: 16px;
+            align-self: center;
+            justify-self: flex-start;
+          }
+        }
+
+        @media screen and (max-width: 610px) {
+          #spotify {
+            justify-self: center;
           }
         }
       `,
@@ -789,40 +892,42 @@ export class MarioAleo extends LitElement {
         </nav>
       </section>
 
-      <main id="main-content" class="card">
-        <h1>Experience</h1>
+      <main id="main-content" class="card" ?hidden=${!this.showLayout}>
+        <div>
+          <h1>Experience</h1>
 
-        <section>
-          <h2>Terapeasy</h2>
-          <h3>Jan. 2021 - Present</h3>
-          <p>Web Developer</p>
-          <p>Stack: Lit</p>
-        </section>
+          <section>
+            <h2>Terapeasy</h2>
+            <h3>Jan. 2021 - Present</h3>
+            <p>Web Developer</p>
+            <p>Stack: Lit</p>
+          </section>
 
-        <section>
-          <h2>Golfleet Tecnologia</h2>
-          <h3>Dec. 2019 - Present</h3>
-          <p>Web Developer</p>
-          <p>Stack: Lit, Angular, Cordova</p>
-        </section>
+          <section>
+            <h2>Golfleet Tecnologia</h2>
+            <h3>Dec. 2019 - Present</h3>
+            <p>Web Developer</p>
+            <p>Stack: Lit, Angular, Cordova</p>
+          </section>
 
-        <section>
-          <h2>Wallbrand</h2>
-          <h3>Jul. 2019 - Dec. 2019</h3>
-          <p>Front-End Developer</p>
-          <p>Stack: React, ReactNative</p>
-        </section>
+          <section>
+            <h2>Wallbrand</h2>
+            <h3>Jul. 2019 - Dec. 2019</h3>
+            <p>Front-End Developer</p>
+            <p>Stack: React, ReactNative</p>
+          </section>
 
-        <section>
-          <h2>Golfleet Tecnologia</h2>
-          <h3>Jul. 2015 - Jul. 2019</h3>
-          <p>Front-End Developer</p>
-          <p>Stack: Angular, Cordova, Electron</p>
-        </section>
+          <section>
+            <h2>Golfleet Tecnologia</h2>
+            <h3>Jul. 2015 - Jul. 2019</h3>
+            <p>Front-End Developer</p>
+            <p>Stack: Angular, Cordova, Electron</p>
+          </section>
+        </div>
       </main>
 
       <div id="layout-control">
-        <button id="toggle-about-me" @click="${() => this.toggleAboutMe()}">
+        <button id="toggle-about-me" @click="${() => this.toggleLayout()}">
           ${this.showLayout ? 'Hide' : 'Show'}
         </button>
 
@@ -831,7 +936,7 @@ export class MarioAleo extends LitElement {
         </button>
       </div>
 
-      <nav id="navigation" class="card">
+      <nav id="navigation" class="card" ?hidden=${!this.showLayout}>
         <h1>Menu</h1>
 
         <a href="#experience" active>Experience</a>
@@ -852,5 +957,9 @@ export class MarioAleo extends LitElement {
 
   toggleLayout() {
     this.showLayout = !this.showLayout;
+  }
+
+  toggleAnimation() {
+    this.animated = !this.animated;
   }
 }
